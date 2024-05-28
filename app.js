@@ -1,6 +1,8 @@
 document.getElementById('connectButton').addEventListener('click', connectToDevice);
 let log = console.log;
 let labels = ["full strike", "lift", "chop", "backhand save"];
+let audios = ["full_strike.mp3","lift.wav","chop.wav","backhand_save.m4a"];
+// ，yoo
 async function connectToDevice() {
     let serviceUuid = "81c30e5c-0000-4f7d-a886-de3e90749161";
     if (serviceUuid.startsWith('0x')) {
@@ -95,6 +97,7 @@ function handleCharacteristicValueChanged(event) {
       return;
     }
     displayData(data);
+
 }
 
 function displayData(data) {
@@ -113,4 +116,15 @@ function displayData(data) {
       p.textContent = `${labels[index]}: ${value}`;
       dataDisplay.appendChild(p);
     });
+    // 找到最大值及其对应的标签
+    const maxIndex = data.indexOf(Math.max(...data));
+    const maxLabel = labels[maxIndex];
+    playAudio(maxIndex);
+}
+
+function playAudio(maxIndex) {
+    path = "audio/";
+    const audio = new Audio(path+audios[maxIndex]);
+    // const audio  = new Audio('audio/badminton.wav');
+    audio.play();
 }
