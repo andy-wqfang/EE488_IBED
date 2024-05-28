@@ -1,3 +1,27 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Bluetooth Device Connection</title>-->
+<!--    <style>-->
+<!--        #dataDisplay {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            margin-top: 20px;-->
+<!--        }-->
+<!--        .data-item {-->
+<!--            margin-bottom: 10px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Bluetooth Device Connection</h1>-->
+<!--    <button id="connectButton">Connect to Bluetooth Device</button>-->
+<!--    <div id="dataDisplay"></div>-->
+
+<!--    <script src="app.js"></script>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,20 +29,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bluetooth Device Connection</title>
     <style>
-        #dataDisplay {
+        body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        #connectButton {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #connectButton:hover {
+            background-color: #0056b3;
+        }
+        #dataDisplay {
             margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
         }
         .data-item {
             margin-bottom: 10px;
         }
+        .gif-container {
+            display: flex; /* Use flexbox */
+            justify-content: center; /* Center align items horizontally */
+            align-items: center; /* Align items vertically */
+            flex-wrap: nowrap; /* Ensure items do not wrap */
+            overflow-x: auto; /* Enable horizontal scrolling if needed */
+            padding-bottom: 20px; /* Add bottom padding for space */
+        }
+        .tenor-gif-embed {
+            flex-shrink: 0; /* Prevent items from shrinking */
+            max-width: 100px; /* Set maximum width for each GIF */
+            margin: 0 10px; /* Add horizontal margin between GIFs */
+        }
     </style>
 </head>
 <body>
-    <h1>Bluetooth Device Connection</h1>
+<div class="container">
+    <h1>IBED</h1>
     <button id="connectButton">Connect to Bluetooth Device</button>
+    <div class="gif-container">
+        <div class="tenor-gif-embed" data-postid="5228236309973650302" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/verycat-twitch-cat-twitch-emote-cat-emote-cat-twitch-very-cat-gif-5228236309973650302">Verycat Twitch Cat Twitch Emote Sticker</a>from <a href="https://tenor.com/search/verycat+twitch-stickers">Verycat Twitch Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div >
     <div id="dataDisplay"></div>
-
-    <script src="app.js"></script>
+</div>
+<script src="app.js"></script>
 </body>
 </html>
