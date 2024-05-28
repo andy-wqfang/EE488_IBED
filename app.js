@@ -116,14 +116,14 @@ function displayData(data) {
       p.textContent = `${labels[index]}: ${value}`;
       dataDisplay.appendChild(p);
     });
-    // 找到最大值及其对应的标签
+    // find the maximum probability and the corresponding label
     const maxIndex = data.indexOf(Math.max(...data));
     const maxLabel = labels[maxIndex];
     playAudio(maxIndex);
 }
 
 function playAudio(maxIndex) {
-    path = "audio/";
+    let path = "audio/";
     const audio = new Audio(path+audios[maxIndex]);
     // const audio  = new Audio('audio/badminton.wav');
     audio.play();
