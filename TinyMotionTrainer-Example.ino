@@ -102,15 +102,39 @@ TfLiteTensor* tflOutputTensor = nullptr;
 // be adjusted based on the model you are using
 constexpr int tensorArenaSize = 8 * 1024;
 byte tensorArena[tensorArenaSize];
+void rgbLedOff() {
+  digitalWrite(LEDR, HIGH);
+  digitalWrite(LEDG, HIGH);
+  digitalWrite(LEDB, HIGH);
+}
+void rgbLedYellow()
+{
+  digitalWrite(LEDR, LOW);
+  digitalWrite(LEDG, LOW);
+  digitalWrite(LEDB, HIGH);
+}
+void rgbLedRed()
+{
+  digitalWrite(LEDR, LOW);
+  digitalWrite(LEDG, HIGH);
+  digitalWrite(LEDB, HIGH);
+}
+void bleConnectHandler(BLEDevice central) {
+  // LED yellow
+  millis() % 100 > 50 ? rgbLedOff() : rgbLedYellow();
+}
 
-
+void bleDisconnectHandler(BLEDevice central) {
+  millis() % 100 > 50 ? rgbLedOff() : rgbLedRed();
+}
 //==============================================================================
 // Setup / Loop
 //==============================================================================
 
 void setup() {
   // pinMode(LED_BUILTIN, OUTPUT);
-        
+  BLE.setEventHandler(BLEConnected, bleConnectHandler);
+  BLE.setEventHandler(BLEDisconnected, bleDisconnectHandler);
   Serial.begin(9600);
   const int startTime = millis();
   // Wait for serial monitor to connect
